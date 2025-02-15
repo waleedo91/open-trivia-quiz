@@ -1,0 +1,22 @@
+.top-container {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 249, 0.407);
+}
+
+.top-container:hover {
+  color: blue;
+}
+
+.nav-container {
+  border: 1px solid black;
+}
