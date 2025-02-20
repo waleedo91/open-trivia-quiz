@@ -1,26 +1,46 @@
-import { FloatingLabel, Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import "./Home.css";
 
+const category = ["Video Game", "Movies", "Development"];
+const difficulty = ["Easy", "Medium", "Hard", "Expert"];
+
 function Home() {
   return (
-    <div className="home-container">
-      <div className="form-container">
-        <FloatingLabel controlId="floatingInput" className="mb-3 ">
-          <Form.Control
-            type="text"
-            placeholder="First Name"
-            className="form-input"
-          />
-        </FloatingLabel>
-        <Form.Select aria-label="Default select example" className="form-input">
-          <option>Select Category</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </Form.Select>
-      </div>
-    </div>
+    <>
+      <Form className="form-container">
+        <div className="form-group">
+          <Form.Group className="mb-3 " controlId="firstName">
+            <Form.Control
+              type="text"
+              placeholder="Enter your First Name"
+              className="form-input"
+            />
+          </Form.Group>
+          <Form.Select className="form-select" aria-label="Select Category">
+            <option>Select Category</option>
+            {category.map((cat, index) => (
+              <option key={index} value={index}>
+                {cat}
+              </option>
+            ))}
+          </Form.Select>
+          <br />
+          <Form.Select className="form-select" aria-label="Select Difficulty">
+            <option>Select Difficulty</option>
+            {difficulty.map((dif, index) => (
+              <option key={index} value={index}>
+                {dif}
+              </option>
+            ))}
+          </Form.Select>
+          <br />
+          <div className="button-container">
+            <Button className="form-button">Submit</Button>
+          </div>
+        </div>
+      </Form>
+    </>
   );
 }
 
