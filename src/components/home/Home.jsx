@@ -1,46 +1,91 @@
-import { Form, Button } from "react-bootstrap";
+import { useState } from "react";
+
+import { Form, Button, Dropdown } from "react-bootstrap";
 
 import "./Home.css";
 
 const category = ["Video Game", "Movies", "Development"];
 const difficulty = ["Easy", "Medium", "Hard", "Expert"];
 
+// TODO: Figure out how to submit a form that will take in all of the states information from dropdowns and input values.
+// TODO: Also figure a way to submit the information and open a new page.
+
 function Home() {
+  const [data, setData] = useState({
+    name: "",
+    category: "",
+    difficulty: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(data);
+  };
+
   return (
-    <>
-      <Form className="form-container">
-        <div className="form-group">
-          <Form.Group className="mb-3 " controlId="firstName">
-            <Form.Control
-              type="text"
-              placeholder="Enter your First Name"
-              className="form-input"
-            />
-          </Form.Group>
-          <Form.Select className="form-select" aria-label="Select Category">
-            <option>Select Category</option>
-            {category.map((cat, index) => (
-              <option key={index} value={index}>
-                {cat}
+    <div className="home-container">
+      <Form className="form-container" onSubmit={handleSubmit}>
+        <h1>Quiz Time!</h1>
+        <Form.Group className="mb-3 form-group">
+          <Form.Control
+            className="form-control"
+            type="text"
+            placeholder="Enter your Name"
+            name="name"
+            value={data.name}
+            onChange={handleChange}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="category-dropdown" className="form-group">
+          <Form.Control
+            className="form-control"
+            as="select"
+            name="category"
+            value={data.category}
+            onChange={handleChange}
+          >
+            <option value="" className="form-option">
+              Select a Category
+            </option>
+            {category.map((opt, index) => (
+              <option value={opt} key={index} className="form-option">
+                {opt}
               </option>
             ))}
-          </Form.Select>
-          <br />
-          <Form.Select className="form-select" aria-label="Select Difficulty">
-            <option>Select Difficulty</option>
-            {difficulty.map((dif, index) => (
-              <option key={index} value={index}>
-                {dif}
+          </Form.Control>
+        </Form.Group>
+        <Form.Group controlId="difficulty-dropdown" className="form-group">
+          <Form.Control
+            className="form-control"
+            as="select"
+            name="difficulty"
+            value={data.difficulty}
+            onChange={handleChange}
+          >
+            <option value="" className="form-option">
+              Select a Difficulty
+            </option>
+            {difficulty.map((opt, index) => (
+              <option value={opt} key={index} className="form-option">
+                {opt}
               </option>
             ))}
-          </Form.Select>
-          <br />
-          <div className="button-container">
-            <Button className="form-button">Submit</Button>
-          </div>
-        </div>
+          </Form.Control>
+        </Form.Group>
+        <Button type="submit" className="form-button">
+          Submit
+        </Button>
       </Form>
-    </>
+    </div>
   );
 }
 

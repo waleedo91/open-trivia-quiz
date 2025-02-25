@@ -2,64 +2,64 @@
   position: relative;
   top: 100px;
   width: 100%;
-  justify-content: center;
-  height: 50vh;
+  height: 25em;
 }
 
 .form-container {
-  margin: 0 auto;
   display: flex;
-  position: relative;
-  top: 100px;
   flex-direction: column;
-  width: 75%;
-  margin-top: 10px;
-  background-color: blue;
-  height: 45vh;
-  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+  height: 20rem;
+  background-color: rgba(0, 0, 255, 0.545);
 }
 
 .form-group {
-  margin: 30px auto;
+  color: black;
+  margin-top: 25px;
+  margin-bottom: 30px;
+  height: 30px;
 }
 
-.form-input {
-  height: 2rem;
-  width: 20rem;
-}
-
-.form-select {
-  width: 24.5em;
-  margin-top: 20px;
-  height: 2.5rem;
-}
-
-.button-container {
-  display: flex;
+.form-control {
+  width: 17em;
+  padding-left: 10px;
+  height: 2em;
+  font-size: 20px;
+  border-radius: 20px;
 }
 
 .form-button {
-  margin: 30px auto;
-  height: 35px;
-  width: 30%;
+  height: 3em;
+  width: 5em;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 255, 0.545);
+  color: white;
   font-size: 25px;
-  background-color: white;
-  font-weight: bold;
-  border-radius: 30px;
 }
 
 .form-button:hover {
-  background-color: green;
+  background-color: white;
+  border: 3px solid blue;
+  color: black;
   cursor: pointer;
+}
+
+.form-option {
+  width: 5px;
+  font-size: 15px;
 }
 
 @media screen and (min-width: 600px) {
   .form-container {
-    width: 50%;
+    width: 35%;
+    border-radius: 50px;
+    height: 60vh;
   }
 
-  .form-input {
-    height: 2rem;
-    margin-bottom: 15px;
+  .form-button {
+    height: 7vh;
   }
 }
