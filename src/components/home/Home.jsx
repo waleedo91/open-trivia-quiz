@@ -1,16 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { Form, Button, Dropdown } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import "./Home.css";
 
-const category = ["Video Game", "Movies", "Development"];
-const difficulty = ["Easy", "Medium", "Hard", "Expert"];
+const difficulty = ["easy", "medium", "hard"];
 
 // TODO: Figure out how to submit a form that will take in all of the states information from dropdowns and input values.
 // TODO: Also figure a way to submit the information and open a new page.
 
 function Home() {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     category: "",
@@ -27,7 +28,8 @@ function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
+    setData(e.target.name);
+    navigate("/quiz-time", { state: data });
   };
 
   return (
