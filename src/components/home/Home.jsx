@@ -6,6 +6,28 @@ import { Form, Button } from "react-bootstrap";
 import "./Home.css";
 
 const difficulty = ["easy", "medium", "hard"];
+const category = [
+  {
+    id: 9,
+    name: "General Knowledge",
+  },
+  {
+    id: 14,
+    name: "Entertainment: Television",
+  },
+  {
+    id: 15,
+    name: "Entertainment: Video Games",
+  },
+  {
+    id: 11,
+    name: "Entertainment: Film",
+  },
+  {
+    id: 12,
+    name: "Entertainment: Music",
+  },
+];
 
 // TODO: Figure out how to submit a form that will take in all of the states information from dropdowns and input values.
 // TODO: Also figure a way to submit the information and open a new page.
@@ -28,6 +50,7 @@ function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e.target);
     setData(e.target.name);
     navigate("/quiz-time", { state: data });
   };
@@ -58,9 +81,9 @@ function Home() {
             <option value="" className="form-option">
               Select a Category
             </option>
-            {category.map((opt, index) => (
-              <option value={opt} key={index} className="form-option">
-                {opt}
+            {category.map((cat) => (
+              <option key={cat.id}>
+                {cat.id} -{cat.name}
               </option>
             ))}
           </Form.Control>
