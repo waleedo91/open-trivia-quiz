@@ -1,22 +1,28 @@
 .questions-container {
+  border: 1px solid black;
 }
 
 @media screen and (min-width: 480px) {
   .quiz-container {
-    border: 1px solid black;
+    height: 100vh;
   }
 
   .questions-container {
     position: absolute;
-    border: 1px solid black;
     height: 100px;
-    overflow: scroll;
+    overflow-x: scroll;
+    width: 100%;
     display: flex;
+    height: 70vh;
     flex-direction: column;
-    width: 50%;
     top: 100px;
   }
 
   .question-card {
+    margin: 10px auto;
+    width: 50%;
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 10px;
   }
 }

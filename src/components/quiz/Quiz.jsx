@@ -32,14 +32,18 @@ function Quiz() {
     <div className="quiz-container">
       <div className="questions-container">
         {quizQuestions.map((ques, index) => (
-          <Card
-            style={{ width: "18rem" }}
-            className="question-card"
-            key={index}
-          >
+          <Card className="question-card" key={index}>
             <Form>
-              <Card.Header>Question #{index}</Card.Header>
+              <Card.Header>Question #{index + 1}</Card.Header>
               <Card.Text>{ques.question}</Card.Text>
+              {ques.incorrect_answers.map((answers, index) => (
+                <Form.Check key={index} type="radio" label={answers} />
+              ))}
+              <Form.Check
+                type="radio"
+                id={ques.correct_answer}
+                label={ques.correct_answer}
+              />
             </Form>
           </Card>
         ))}
