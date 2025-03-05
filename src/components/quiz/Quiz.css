@@ -1,0 +1,22 @@
+.questions-container {
+}
+
+@media screen and (min-width: 480px) {
+  .quiz-container {
+    border: 1px solid black;
+  }
+
+  .questions-container {
+    position: absolute;
+    border: 1px solid black;
+    height: 100px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    top: 100px;
+  }
+
+  .question-card {
+  }
+}
